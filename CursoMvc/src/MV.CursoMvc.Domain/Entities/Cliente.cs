@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MV.CursoMvc.Domain.Entities
 {
-    class Cliente
+   public class Cliente
     {
         public Cliente()
         {

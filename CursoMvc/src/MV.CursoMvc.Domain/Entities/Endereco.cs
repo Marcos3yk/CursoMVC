@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MV.CursoMvc.Domain.Entities
 {
-    class Endereco
+    public class Endereco
     {
         public Endereco()
         {
