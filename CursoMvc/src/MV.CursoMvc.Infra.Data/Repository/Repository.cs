@@ -19,14 +19,14 @@ namespace MV.CursoMvc.Infra.Data.Repository
             DbSet = Db.Set<TEntity>();
         }
 
-        public void Adicionar(TEntity obj)
+        public virtual void Adicionar(TEntity obj)
         {
             DbSet.Add(obj);
             SaveChanges();
 
         }
 
-        public void Atualizar(TEntity obj)
+        public virtual void Atualizar(TEntity obj)
         {
             var entry = Db.Entry(obj);
             DbSet.Attach(obj);
@@ -39,7 +39,7 @@ namespace MV.CursoMvc.Infra.Data.Repository
             return DbSet.Where(predicate);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Db.Dispose();
             GC.SuppressFinalize(this);
@@ -50,13 +50,13 @@ namespace MV.CursoMvc.Infra.Data.Repository
             return DbSet.Find(id);
         }
 
-        public IEnumerable<TEntity> ObterTodos( /*int skip, int take*/)
+        public virtual IEnumerable<TEntity> ObterTodos( /*int skip, int take*/)
         {
             //return DbSet.ToList().Skip(skip).Take(take); //skip e take, referentes a paginação 0 e 10
             return DbSet.ToList();
         }
 
-        public void Remover(Guid id)
+        public virtual void Remover(Guid id)
         {
             DbSet.Remove(ObterPorId(id));
             SaveChanges();

@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MV.CursoMvc.Infra.Data", "src\MV.CursoMvc.Infra.Data\MV.CursoMvc.Infra.Data.csproj", "{B5B29D8C-F132-46EF-87A2-044D86872F5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MV.CursoMvc.Application", "src\MV.CursoMvc.Application\MV.CursoMvc.Application.csproj", "{9810B55F-AB50-44ED-AA29-CD5B7C630229}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B5B29D8C-F132-46EF-87A2-044D86872F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5B29D8C-F132-46EF-87A2-044D86872F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5B29D8C-F132-46EF-87A2-044D86872F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9810B55F-AB50-44ED-AA29-CD5B7C630229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9810B55F-AB50-44ED-AA29-CD5B7C630229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9810B55F-AB50-44ED-AA29-CD5B7C630229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9810B55F-AB50-44ED-AA29-CD5B7C630229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +54,6 @@ Global
 		{24CF9F8D-D640-4CF2-8779-9259E88287A0} = {4E5C81CA-6A4D-44BA-8945-E6A705777B9E}
 		{891F631C-0B03-48AE-8EA5-F4676DB7B123} = {65E6FA46-EE22-4E93-89D2-D5E370CAA97F}
 		{B5B29D8C-F132-46EF-87A2-044D86872F5F} = {891F631C-0B03-48AE-8EA5-F4676DB7B123}
+		{9810B55F-AB50-44ED-AA29-CD5B7C630229} = {16991D9B-48DF-4614-B63B-FFD03CF475D1}
 	EndGlobalSection
 EndGlobal
