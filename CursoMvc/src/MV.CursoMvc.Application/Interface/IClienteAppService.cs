@@ -1,18 +1,19 @@
 ﻿using MV.CursoMvc.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using MV.CursoMvc.Application.ViewModels;
 
 namespace MV.CursoMvc.Application.Interface
 {
     public interface IClienteAppService : IDisposable
     {
-        //Cliente ObterPorCPF(string cpf);
-        //Cliente ObterPorEmail(string email);
+        ClienteViewModel ObterPorCPF(string cpf);
+        ClienteViewModel ObterPorEmail(string email);
 
-        void Adicionar(Cliente cliente);
-        Cliente ObterPorId(Guid id);
-        IEnumerable<Cliente> ObterTodos();
-        void Atualizar(Cliente cliente);
+        void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel);
+        ClienteViewModel ObterPorId(Guid id);
+        IEnumerable<ClienteViewModel> ObterTodos();
+        void Atualizar(ClienteViewModel clienteViewModel);
         void Remover(Guid id);
     }
 }

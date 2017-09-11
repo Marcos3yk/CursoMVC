@@ -21,7 +21,7 @@ namespace MV.CursoMvc.UI.MVC.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CursoMvcContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,7 @@ namespace MV.CursoMvc.UI.MVC.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MV.CursoMvc.Application.ViewModels.ClienteViewModel> ClienteViewModels { get; set; }
     }
 }

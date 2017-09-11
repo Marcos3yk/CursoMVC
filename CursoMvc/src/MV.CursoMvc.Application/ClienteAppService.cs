@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MV.CursoMvc.Application.Interface;
+using MV.CursoMvc.Application.ViewModels;
 using MV.CursoMvc.Domain.Entities;
 using MV.CursoMvc.Domain.Interfaces.Repository;
 using MV.CursoMvc.Infra.Data.Repository;
@@ -9,36 +10,47 @@ namespace MV.CursoMvc.Application
 {
     public class ClienteAppService : IClienteAppService
     {
-        private readonly ClienteRepository Db = new ClienteRepository();
+        private readonly ClienteRepository clienteRespository = new ClienteRepository();
 
-        public void Adicionar(Cliente cliente)
+        public void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
         {
-            throw new NotImplementedException();
+            clienteRespository.Adicionar(clienteEnderecoViewModel);
         }
 
-        public void Atualizar(Cliente cliente)
+        public void Atualizar(ClienteViewModel clienteViewModel)
         {
-            throw new NotImplementedException();
+           clienteRespository.Atualizar(clienteViewModel);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            clienteRespository.Dispose();
+            GC.SuppressFinalize(this);
         }
 
-        public Cliente ObterPorId(Guid id)
+        public Cliente ObterPorCPF(string cpf)
         {
-            throw new NotImplementedException();
+            return clienteRespository.ObterPorCPF(cpf);
         }
 
-        public IEnumerable<Cliente> ObterTodos()
+        public ClienteViewModel ObterPorEmail(string email)
         {
-            throw new NotImplementedException();
+            return clienteRespository.ObterPorEmail(email);
+        }
+
+        public ClienteViewModel ObterPorId(Guid id)
+        {
+            return clienteRespository.ObterPorId(id);
+        }
+
+        public IEnumerable<ClienteViewModel> ObterTodos()
+        {
+            return clienteRespository.ObterTodos();
         }
 
         public void Remover(Guid id)
         {
-            throw new NotImplementedException();
+            clienteRespository.Remover(id);
         }
     }
 }
