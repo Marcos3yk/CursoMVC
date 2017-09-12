@@ -8,10 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using MV.CursoMvc.Application;
 using MV.CursoMvc.Application.ViewModels;
+using MV.CursoMvc.Infra.CrossCutting.Mvc.Filters;
 using MV.CursoMvc.UI.MVC.Models;
 
 namespace MV.CursoMvc.UI.MVC.Controllers
 {
+    
     public class ClientesController : Controller
     {
         private readonly  ClienteAppService _clienteAppService = new ClienteAppService();
@@ -29,7 +31,7 @@ namespace MV.CursoMvc.UI.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var clienteViewModel = _clienteAppService.ObterPorId(id.Value));
+            var clienteViewModel = _clienteAppService.ObterPorId(id.Value);
             if (clienteViewModel == null)
             {
                 return HttpNotFound();

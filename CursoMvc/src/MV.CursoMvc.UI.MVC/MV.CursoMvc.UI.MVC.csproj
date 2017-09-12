@@ -242,6 +242,7 @@
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\_Endereco.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +258,10 @@
     <ProjectReference Include="..\MV.CursoMvc.Application\MV.CursoMvc.Application.csproj">
       <Project>{9810b55f-ab50-44ed-aa29-cd5b7c630229}</Project>
       <Name>MV.CursoMvc.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MV.CursoMvc.Infra.CrossCutting.Mvc.Filters\MV.CursoMvc.Infra.CrossCutting.Mvc.Filters.csproj">
+      <Project>{920bf7b1-6bdd-4ef9-87a3-89bdbe1a09ba}</Project>
+      <Name>MV.CursoMvc.Infra.CrossCutting.Mvc.Filters</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

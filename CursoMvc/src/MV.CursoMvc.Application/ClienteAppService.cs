@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoMapper;
 using MV.CursoMvc.Application.Interface;
 using MV.CursoMvc.Application.ViewModels;
 using MV.CursoMvc.Domain.Entities;
@@ -10,47 +11,55 @@ namespace MV.CursoMvc.Application
 {
     public class ClienteAppService : IClienteAppService
     {
-        private readonly ClienteRepository clienteRespository = new ClienteRepository();
+        private readonly ClienteRepository _clienteRespository = new ClienteRepository();
 
         public void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
         {
-            clienteRespository.Adicionar(clienteEnderecoViewModel);
+            var cliente = Mapper.Map<ClienteEnderecoViewModel, Cliente>(clienteEnderecoViewModel);
+            var endereco = Mapper.Map<ClienteEnderecoViewModel, Endereco>(clienteEnderecoViewModel);
+
+            cliente.Enderecos.Add(endereco);
+            _clienteRespository.Adicionar(cliente);
         }
 
         public void Atualizar(ClienteViewModel clienteViewModel)
         {
-           clienteRespository.Atualizar(clienteViewModel);
+            var cliente = Mapper.Map<ClienteViewModel, Cliente>(clienteViewModel);
+            //var endereco = Mapper.Map<ClienteEnderecoViewModel, Endereco>(clienteEnderecoViewModel);
+
+            _clienteRespository.Atualizar(cliente);
         }
 
         public void Dispose()
         {
-            clienteRespository.Dispose();
+            _clienteRespository.Dispose();
             GC.SuppressFinalize(this);
         }
 
-        public Cliente ObterPorCPF(string cpf)
+        public ClienteViewModel ObterPorCPF(string cpf)
         {
-            return clienteRespository.ObterPorCPF(cpf);
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteRespository.ObterPorCPF(cpf));
         }
 
         public ClienteViewModel ObterPorEmail(string email)
         {
-            return clienteRespository.ObterPorEmail(email);
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteRespository.ObterPorEmail(email));
         }
 
         public ClienteViewModel ObterPorId(Guid id)
         {
-            return clienteRespository.ObterPorId(id);
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteRespository.ObterPorId(id));
         }
 
         public IEnumerable<ClienteViewModel> ObterTodos()
         {
-            return clienteRespository.ObterTodos();
+            return Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRespository.ObterTodos());
+
         }
 
         public void Remover(Guid id)
         {
-            clienteRespository.Remover(id);
+            _clienteRespository.Remover(id);
         }
     }
 }
