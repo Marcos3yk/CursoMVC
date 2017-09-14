@@ -45,7 +45,7 @@ namespace MV.CursoMvc.Infra.Data.Repository
             GC.SuppressFinalize(this);
         }
 
-        public TEntity ObterPorId(Guid id)
+        public virtual TEntity ObterPorId(Guid id)
         {
             return DbSet.Find(id);
         }
